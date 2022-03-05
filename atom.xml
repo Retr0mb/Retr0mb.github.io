@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>牙签技术栈</title>
+  
+  <subtitle>python</subtitle>
+  <link href="https://retr0mb.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://retr0mb.github.io/"/>
+  <updated>2022-03-05T12:47:10.810Z</updated>
+  <id>https://retr0mb.github.io/</id>
+  
+  <author>
+    <name>Retr0mb</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flask模块误区</title>
+    <link href="https://retr0mb.github.io/2022/02/27/addanimbg/"/>
+    <id>https://retr0mb.github.io/2022/02/27/addanimbg/</id>
+    <published>2022-02-27T03:34:16.273Z</published>
+    <updated>2022-03-05T12:47:10.810Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://dl4.weshineapp.com/gif/20210717/aef09ea5e8400a6b49fece64c6c360fc.gif?f=micro_" alt="img"></p><h2 id="最近信息课上学习了的模块。"><a href="#最近信息课上学习了的模块。" class="headerlink" title="最近信息课上学习了的模块。"></a>最近信息课上学习了<mark class="hl-label blue">python</mark> 的<mark class="hl-label red">flask</mark> 模块。</h2><blockquote><p>第一印象：简洁</p></blockquote><details class="toggle" ><summary class="toggle-button" style="">对flask的简述</summary><div class="toggle-content"><h2 id="flask算是继承了python的优良传统，其操作十分的友好，友好到进了教科书，它甚至还集成了本地服务器，只需编写一个简洁的python文件，便可以直接运行启动网页。"><a href="#flask算是继承了python的优良传统，其操作十分的友好，友好到进了教科书，它甚至还集成了本地服务器，只需编写一个简洁的python文件，便可以直接运行启动网页。" class="headerlink" title="flask算是继承了python的优良传统，其操作十分的友好，友好到进了教科书，它甚至还集成了本地服务器，只需编写一个简洁的python文件，便可以直接运行启动网页。"></a>flask算是继承了python的优良传统，其操作十分的友好，友好到进了教科书，它甚至还集成了本地服务器，只需编写一个简洁的python文件，便可以直接运行启动网页。</h2></div></details><details class="toggle" ><summary class="toggle-button" style="">我认为的flask的缺点</summary><div class="toggle-content"><h2 id="尽管flask十分方便，但是它起到的只是在本地启动一个服务器的作用，它只能在局域网内被其他用户访问，比如学校的官网。想要真正被访问，我想起老师说的一句话：‘哪有那么简单’"><a href="#尽管flask十分方便，但是它起到的只是在本地启动一个服务器的作用，它只能在局域网内被其他用户访问，比如学校的官网。想要真正被访问，我想起老师说的一句话：‘哪有那么简单’" class="headerlink" title="尽管flask十分方便，但是它起到的只是在本地启动一个服务器的作用，它只能在局域网内被其他用户访问，比如学校的官网。想要真正被访问，我想起老师说的一句话：‘哪有那么简单’"></a>尽管flask十分方便，但是它起到的只是在本地启动一个服务器的作用，它只能在局域网内被其他用户访问，比如学校的官网。想要真正被访问，我想起老师说的一句话：‘哪有那么简单’</h2></div></details><hr><div class="note green icon simple"><i class="note-icon fab fa-internet-explorer"></i><p>最近机房实践课中，某一个班在使用flask过程中遭遇了无法实现功能的情况</p></div><h3 id="接下来说说我对这个情况的想法"><a href="#接下来说说我对这个情况的想法" class="headerlink" title="接下来说说我对这个情况的想法"></a>接下来说说我对这个情况的想法</h3><p>我先是检测了自家的网络</p><p>首先通过cmd的<mark class="hl-label green">ipconfig</mark> 指令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23989&gt;ipconfig</span><br><span class="line">无线局域网适配器 WLAN:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::e812:760c:3fa4:7455%18</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.31.189</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : 192.168.31.1</span><br></pre></td></tr></table></figure><p>可以发现我家并没有独立ip</p><blockquote><p>局域网一般为这三个网段 192.168.xx 172.16.x.x 10.x.x.x</p><p>据记忆 学校官网IP为10.44.110.5</p></blockquote><p>于是对学校进行<mark class="hl-label green">ping</mark> </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">:\Users\23989&gt;ping 10.44.110.5</span><br><span class="line"></span><br><span class="line">正在 Ping 10.44.110.5 具有 32 字节的数据:</span><br><span class="line">一般故障。</span><br><span class="line">一般故障。</span><br><span class="line">一般故障。</span><br><span class="line">一般故障。</span><br><span class="line"></span><br><span class="line">10.44.110.5 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 0，丢失 = 4 (100% 丢失)</span><br></pre></td></tr></table></figure><p>可见数据异常，内网ip无疑</p><p>那么便排除外界因素</p><h2 id="我所认为问题出在这里"><a href="#我所认为问题出在这里" class="headerlink" title="我所认为问题出在这里"></a>我所认为问题出在这里</h2><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  pie    title 故障几率    &quot;ip屏蔽&quot; : 70    &quot;端口占用&quot; : 30  </pre></div><h3 id="由于情况没有特别清楚说明是安装后不行还是运行时失败，因此有两种可能"><a href="#由于情况没有特别清楚说明是安装后不行还是运行时失败，因此有两种可能" class="headerlink" title="由于情况没有特别清楚说明是安装后不行还是运行时失败，因此有两种可能"></a>由于情况没有特别清楚说明是安装后不行还是运行时失败，因此有两种可能</h3><h4 id="IP屏蔽"><a href="#IP屏蔽" class="headerlink" title="IP屏蔽"></a>IP屏蔽</h4><p>安装flask应该不会导致网络堵塞，我从gitee下载到的flask包大小为1.41MB，考虑到flask官网没被屏蔽，那么机房下载速度应该可以达到5mb&#x2F;s(以机房网速为100兆字节计算)，那么平均一个班45人，总共下载的也就是50mb的包，同时安装也可以在几分钟内全部完成，<br>但是此时在同一时刻由同一个IP向flask的官方服务器发送大数量请求，容易被当成肉鸡，平时有些网页连续刷新将近十次便会开启保护，flask更不用说了</p><h4 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h4><p>有几个同学，可能侥幸在被封锁前install完了flask,但是考虑到缺乏经验，他们可能会照抄书上的内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Serving Flask app &quot;myblog.py&quot;</span><br><span class="line"> * Environment: production</span><br><span class="line">   WARNING: Do not use the development server in a production environment.</span><br><span class="line">   Use a production WSGI server instead.</span><br><span class="line"> * Debug mode: off</span><br><span class="line"> * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure><p>最后输出如下内容 Running on http:&#x2F;&#x2F;<mark class="hl-label orange">127.0.0.1:5000</mark>  看到访问的是5000端口，那么同时两个人开启，使用的都是5000端口，由于端口占用，最后也只有一个人能成功。全班也只能看到一个人的网页！</p><h1 id="我所认为的解决方法"><a href="#我所认为的解决方法" class="headerlink" title="我所认为的解决方法"></a>我所认为的解决方法</h1><blockquote><p>1.教师通过极域电子教室投屏某一个学生的屏幕，让大家观看并提出建议</p></blockquote><blockquote><p>2.修改冰点还原，在冰点还原中添加flask模组，提前安装好，学生开机不安装就可以使用</p></blockquote>]]></content>
+    
+    
+    <summary type="html">在butterfly主题中添加视频背景</summary>
+    
+    
+    
+    <category term="python学习" scheme="https://retr0mb.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="flask.python" scheme="https://retr0mb.github.io/tags/flask-python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>必应每日壁纸</title>
+    <link href="https://retr0mb.github.io/2022/02/26/2/"/>
+    <id>https://retr0mb.github.io/2022/02/26/2/</id>
+    <published>2022-02-26T10:01:22.433Z</published>
+    <updated>2022-03-05T09:57:37.633Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="本站的主BG通过调用必应官网API获取"><a href="#本站的主BG通过调用必应官网API获取" class="headerlink" title="本站的主BG通过调用必应官网API获取"></a>本站的主BG通过调用必应官网API获取</h1><blockquote><p>API地址: <a href="https://api.uixsj.cn/bing/bing.php">https://api.uixsj.cn/bing/bing.php</a></p></blockquote><img src="https://api.uixsj.cn/bing/bing.php" width="800" height="600" />]]></content>
+    
+    
+    <summary type="html">这个风景图会每日变换</summary>
+    
+    
+    
+    
+    <category term="壁纸" scheme="https://retr0mb.github.io/tags/%E5%A3%81%E7%BA%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>这篇文章有点东西</title>
+    <link href="https://retr0mb.github.io/2022/02/26/hello-world/"/>
+    <id>https://retr0mb.github.io/2022/02/26/hello-world/</id>
+    <published>2022-02-26T04:27:23.805Z</published>
+    <updated>2022-02-27T03:40:20.321Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=546403908&bvid=BV1hq4y1s7VH&cid=361820022&page=1" scrolling="no" border="0" height='1280' width='800' frameborder="no" framespacing="0" allowfullscreen="false"> </iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
