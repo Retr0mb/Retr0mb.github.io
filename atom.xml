@@ -6,7 +6,7 @@
   <link href="https://retr0mb.github.io/atom.xml" rel="self"/>
   
   <link href="https://retr0mb.github.io/"/>
-  <updated>2022-03-05T12:47:10.810Z</updated>
+  <updated>2022-03-06T02:49:54.508Z</updated>
   <id>https://retr0mb.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>获取到GitHub提交次数并在hexo显示</title>
+    <link href="https://retr0mb.github.io/2022/03/06/20220306/"/>
+    <id>https://retr0mb.github.io/2022/03/06/20220306/</id>
+    <published>2022-03-06T02:08:02.921Z</published>
+    <updated>2022-03-06T02:49:54.508Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="如封面图所示，自己的GitHub资料上都有一个提交次数统计的模块"><a href="#如封面图所示，自己的GitHub资料上都有一个提交次数统计的模块" class="headerlink" title="如封面图所示，自己的GitHub资料上都有一个提交次数统计的模块"></a>如封面图所示，自己的GitHub资料上都有一个提交次数统计的模块</h1><hr><h3 id=""><a href="#" class="headerlink" title=""></a><div class="note success simple"><p>将其移植到自己的页面上的步骤</p></div></h3><h4 id="1-在GitHub里搜索了没想到还真有人做了这个功能"><a href="#1-在GitHub里搜索了没想到还真有人做了这个功能" class="headerlink" title="1.在GitHub里搜索了没想到还真有人做了这个功能"></a>1.在GitHub里搜索了<mark class="hl-label red">chart.api</mark> 没想到还真有人做了这个功能<img src="/img/ctapi.png" alt="img"></n></h4><blockquote><p>其官网地址：<a href="https://ghchart.rshah.org/">https://ghchart.rshah.org/</a></p></blockquote><h4 id="2-根据其所述我们只需要在网页中添加以下字符串即可"><a href="#2-根据其所述我们只需要在网页中添加以下字符串即可" class="headerlink" title="2.根据其所述我们只需要在网页中添加以下字符串即可"></a>2.根据其所述我们只需要在网页中添加以下字符串即可</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;http://ghchart.rshah.org/自己的用户名&quot; alt=&quot;描述&quot; /&gt;</span><br></pre></td></tr></table></figure><h4 id="3-于是自己加了个标题和自定义其图片大小"><a href="#3-于是自己加了个标题和自定义其图片大小" class="headerlink" title="3.于是自己加了个标题和自定义其图片大小"></a>3.于是自己加了个标题和自定义其图片大小</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-block animated fadeIn&quot;&gt;</span><br><span class="line">    &lt;h5 class=&quot;post-title&quot; itemprop=&quot;name headline&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;https://github.com/Retr0mb&quot; class=&quot;post-title-link&quot; itemprop=&quot;url&quot;&gt;这是我的仓库&lt;/a&gt;</span><br><span class="line">    &lt;/h5&gt;</span><br><span class="line">    &lt;div class=&quot;post-body animated fadeInDown&quot; itemprop=&quot;articleBody&quot;&gt;</span><br><span class="line">        &lt;img style=&quot;width: 100%; margin-top: 30px;&quot; src=&quot;https://ghchart.rshah.org/e77c8e/Retr0mb&quot; alt=&quot;???&#x27;s Blue Github Chart&quot; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h4 id="4-但是可知，此项代码仅能在文件中可以直接生效，而我博客采用的hexo框架的采用的是类型，于是需要转换成pug类型"><a href="#4-但是可知，此项代码仅能在文件中可以直接生效，而我博客采用的hexo框架的采用的是类型，于是需要转换成pug类型" class="headerlink" title="4.但是可知，此项代码仅能在文件中可以直接生效，而我博客采用的hexo框架的采用的是类型，于是需要转换成pug类型"></a>4.但是可知，此项代码仅能在<mark class="hl-label green">html</mark> 文件中可以直接生效，而我博客采用的hexo框架的采用的是<mark class="hl-label red">pug</mark> 类型，于是需要转换成pug类型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.post-block.animated.fadeIn</span><br><span class="line">  h5.post-title(itemprop=&#x27;name headline&#x27;)</span><br><span class="line">    a.post-title-link(href=&#x27;https://github.com/Retr0mb&#x27; itemprop=&#x27;url&#x27;) 提交</span><br><span class="line">  .post-body.animated.fadeInDown(itemprop=&#x27;articleBody&#x27;)</span><br><span class="line">    img(style=&#x27;width: 100%; margin-top: 30px;&#x27; src=&#x27;https://ghchart.rshah.org/e77c8e/Retr0mb&#x27; alt=&quot;???&#x27;s Blue Github Chart&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="5-添加到博客页面，以我的butterfly为例"><a href="#5-添加到博客页面，以我的butterfly为例" class="headerlink" title="5.添加到博客页面，以我的butterfly为例"></a>5.添加到博客页面，以我的butterfly为例</h4><p>我想要将它添加到每个页面的header上，那么我就需要找到head文件</p><blockquote><p>hexo\themes\butterfly\layout\includes\header\index.pug </p><div class="note warning simple"><p>（这是我的header文件,主题不同会有所差异）</p></div></blockquote><p>由于本身图片没有居中对齐的功能，我们用一个div包裹它，并使用align函数使它居中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.post-block.animated.fadeIn</span><br><span class="line">  .post-body.animated.fadeInDown(itemprop=&#x27;articleBody&#x27;)</span><br><span class="line">   &lt;div align=&#x27;center&#x27;&gt; &lt;img style=&#x27;width: 60%; margin-top: 16px;&#x27; src=&#x27;https://ghchart.rshah.org/e77c8e/Retr0mb&#x27; alt=&quot;???&#x27;s Blue Github Chart&quot; /&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure><h4 id="6-最后添加到header页面的最后就可以了"><a href="#6-最后添加到header页面的最后就可以了" class="headerlink" title="6.最后添加到header页面的最后就可以了"></a>6.最后添加到header页面的最后就可以了</h4><div class="note info simple"><p>额外功能：若需要只在单独页面显示，请配置如下代码</p></div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if page.type !== &#x27;不放置的页面1&#x27; and page.type !== &#x27;不放置的页面2&#x27;&#125;</span><br><span class="line">上述代码省略....</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line">#此段代码未经测试，出现问题请留言</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">hexo获取GitHub提交次数并显示</summary>
+    
+    
+    
+    
+    <category term="GitHub" scheme="https://retr0mb.github.io/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>flask模块误区</title>
@@ -34,45 +53,6 @@
     
     
     <category term="flask.python" scheme="https://retr0mb.github.io/tags/flask-python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>必应每日壁纸</title>
-    <link href="https://retr0mb.github.io/2022/02/26/2/"/>
-    <id>https://retr0mb.github.io/2022/02/26/2/</id>
-    <published>2022-02-26T10:01:22.433Z</published>
-    <updated>2022-03-05T09:57:37.633Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="本站的主BG通过调用必应官网API获取"><a href="#本站的主BG通过调用必应官网API获取" class="headerlink" title="本站的主BG通过调用必应官网API获取"></a>本站的主BG通过调用必应官网API获取</h1><blockquote><p>API地址: <a href="https://api.uixsj.cn/bing/bing.php">https://api.uixsj.cn/bing/bing.php</a></p></blockquote><img src="https://api.uixsj.cn/bing/bing.php" width="800" height="600" />]]></content>
-    
-    
-    <summary type="html">这个风景图会每日变换</summary>
-    
-    
-    
-    
-    <category term="壁纸" scheme="https://retr0mb.github.io/tags/%E5%A3%81%E7%BA%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>这篇文章有点东西</title>
-    <link href="https://retr0mb.github.io/2022/02/26/hello-world/"/>
-    <id>https://retr0mb.github.io/2022/02/26/hello-world/</id>
-    <published>2022-02-26T04:27:23.805Z</published>
-    <updated>2022-02-27T03:40:20.321Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=546403908&bvid=BV1hq4y1s7VH&cid=361820022&page=1" scrolling="no" border="0" height='1280' width='800' frameborder="no" framespacing="0" allowfullscreen="false"> </iframe>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
     
   </entry>
   
